@@ -19,7 +19,7 @@ public class BoatInSea extends JFrame {
 
     public BoatInSea() {
 
-        super("Boat Application");
+        super("Two Boats Racing");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         glcanvas = new GLCanvas();
