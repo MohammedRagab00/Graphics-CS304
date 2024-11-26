@@ -1,10 +1,13 @@
 package BoatInSea;
 
+import ShapesApp.ShapesEventListener;
+
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
+import java.awt.event.*;
 
-public class SailboatSceneGLEventListener implements GLEventListener {
+public class SailboatSceneGLEventListener implements GLEventListener, MouseListener, MouseMotionListener, KeyListener {
 
     @Override
     public void init(GLAutoDrawable glAutoDrawable) {
@@ -39,7 +42,7 @@ public class SailboatSceneGLEventListener implements GLEventListener {
         if (x1 > 600) x1 = -200;
         if (x2 > 600) x2 = -100;
 
-        x2 += 4;
+//        x2 += 4;
         gl.glPushMatrix();
 
         gl.glTranslated(x2, 100, 0);
@@ -47,12 +50,12 @@ public class SailboatSceneGLEventListener implements GLEventListener {
         drawBoat(gl);
         gl.glPopMatrix();
 
-        x1 += 7;
-        gl.glPushMatrix();
-        gl.glTranslated(x1, -40, 0);
-        gl.glScaled(.7, .7, 1);
-        drawBoat(gl);
-        gl.glPopMatrix();
+//        x1 += 7;
+//        gl.glPushMatrix();
+//        gl.glTranslated(x1, -40, 0);
+//        gl.glScaled(.7, .7, 1);
+//        drawBoat(gl);
+//        gl.glPopMatrix();
 
 
 //        gl.glPushMatrix();
@@ -139,5 +142,68 @@ public class SailboatSceneGLEventListener implements GLEventListener {
             }
             gl.glEnd();
         }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_LEFT:
+                x2 -= 4;
+                break;
+            case KeyEvent.VK_RIGHT:
+                 x2+= 4;
+                break;
+//            case KeyEvent.VK_UP:
+//                 -= 10.0 / zoomLevel;
+//                break;
+//            case KeyEvent.VK_DOWN:
+//                 += 10.0 / zoomLevel;
+//                break;
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
     }
 }

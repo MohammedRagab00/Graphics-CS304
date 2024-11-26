@@ -1,22 +1,23 @@
-package ShapesApp;
+package Quiz_02;
 
 import com.sun.opengl.util.FPSAnimator;
 
 import javax.media.opengl.GLCanvas;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseWheelListener;
 
-public class ShapesApp extends JFrame {
+public class quiz extends JFrame {
     private GLCanvas glcanvas;
     public static FPSAnimator animator = null;
-    private ShapesEventListener listener = new ShapesEventListener();
+    private quizEventListener listener = new quizEventListener();
 
     public static void main(String[] args) {
-        new ShapesApp();
+        new quiz();
         animator.start();
     }
 
-    public ShapesApp() {
+    public quiz() {
         super("Shapes");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         glcanvas = new GLCanvas();
@@ -27,13 +28,12 @@ public class ShapesApp extends JFrame {
         glcanvas.addKeyListener(listener);
         glcanvas.addMouseListener(listener);
         glcanvas.addMouseMotionListener(listener);
-        glcanvas.addMouseWheelListener(listener);
 
         getContentPane().add(glcanvas, BorderLayout.CENTER);
         glcanvas.setFocusable(true);
         glcanvas.requestFocus(); // Request focus immediately
 
-        setSize(500, 300);
+        setSize(600, 600);
         setLocationRelativeTo(this);
         setVisible(true);
     }

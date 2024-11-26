@@ -3,6 +3,7 @@ package ShapesApp;
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
+import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,20 +35,6 @@ public class ShapesEventListener implements GLEventListener, KeyListener, MouseL
     }
 
     private List<Shape> shapes = new ArrayList<>();
-
-    // Convert screen coordinates to world coordinates
-    private double screenToWorldX(double screenX) {
-        if (glDrawable == null) return 0;  // Add null check
-        double normalizedX = screenX / glDrawable.getWidth() * 500;
-        return (normalizedX - 250) * zoomLevel - panX;
-    }
-
-    private double screenToWorldY(double screenY) {
-        if (glDrawable == null) return 0;  // Add null check
-        double normalizedY = (glDrawable.getHeight() - screenY) / glDrawable.getHeight() * 300;
-        return (normalizedY - 150) * zoomLevel - panY;
-    }
-
 
     /**
      * The methods glAutoDrawable.getSurfaceWidth()
@@ -212,9 +199,19 @@ public class ShapesEventListener implements GLEventListener, KeyListener, MouseL
 
     }
 
+    void drawFish(GL gl, double r, Color c) {
+        gl.glColor3fv(c.getColorComponents(null), 0);
+        gl.glBegin(GL.GL_POLYGON);
+        for (double i = 0; i < 720; i += 144) {
+            gl.glVertex2d(r * Math.cos(Math.toRadians(i)), r * Math.sin(Math.toRadians(i)));
+            gl.glColor3f(0, 1f, 0);
+        }
+        gl.glEnd();
+    }
+
     private void drawFish(GL gl, double x, double y) {
         // Draw the body of the fish (ellipse)
-        gl.glColor3f(0.0f, 0.5f, 1.0f); // Blue color
+        gl.glColor3f(1.0f, 0.5f, 0f); // Orange color
         gl.glBegin(GL.GL_POLYGON);
         for (int i = 0; i < 360; i++) {
             double angle = Math.toRadians(i);
@@ -223,7 +220,7 @@ public class ShapesEventListener implements GLEventListener, KeyListener, MouseL
         gl.glEnd();
 
         // Draw the tail of the fish (triangle)
-        gl.glColor3f(0.0f, 0.5f, 1.0f); // Blue color
+        gl.glColor3f(0.5f, 0.0f, 1.0f); // Purple color
         gl.glBegin(GL.GL_TRIANGLES);
         gl.glVertex2d(x - 10, y);
         gl.glVertex2d(x - 15, y + 5);
@@ -288,6 +285,20 @@ public class ShapesEventListener implements GLEventListener, KeyListener, MouseL
         currentY = screenToWorldY(e.getY());
     }
 
+    // Convert screen coordinates to world coordinates
+    private double screenToWorldX(double x) {
+        if (glDrawable == null) return 0;  // Add null check
+        double normalizedX = x / glDrawable.getWidth() * 500;
+        return (normalizedX - 250) * zoomLevel - panX;
+    }
+
+    private double screenToWorldY(double y) {
+        if (glDrawable == null) return 0;  // Add null check
+        double normalizedY = (glDrawable.getHeight() - y) / glDrawable.getHeight() * 300;
+        return (normalizedY - 150) * zoomLevel - panY;
+    }
+
+
     @Override
     public void keyTyped(KeyEvent e) {
     }
@@ -309,8 +320,9 @@ public class ShapesEventListener implements GLEventListener, KeyListener, MouseL
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        isDragging = false;
+
     }
+
 
     @Override
     public void mouseEntered(MouseEvent e) {
