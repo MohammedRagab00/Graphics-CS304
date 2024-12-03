@@ -17,9 +17,10 @@ class SimpleCircleCollisionGLEventListener implements GLEventListener {
 
     }
 
-    double x = 0, y = 0, deg = 0, ix = 2.5, iy = 2.5;
-//    double x1 = Math.random()*600,y1 = Math.random()*400;
-    double x1 = 100, y1 =70;
+    double x = 0, y = 0, deg = 0, ix = 2.5, iy = 2.5, positionX = 100, positionY = 100;
+    //    double x1 = Math.random()*600,y1 = Math.random()*400;
+    double x1 = 100, y1 = 70;
+
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL();
         gl.glClear(GL.GL_COLOR_BUFFER_BIT);
@@ -52,16 +53,23 @@ class SimpleCircleCollisionGLEventListener implements GLEventListener {
         // The Logic
         rgb(255, 220, 1, gl);
         gl.glPushMatrix();
-        gl.glTranslated(100 + x, 70 + y, 0);
+//        gl.glTranslated(100 + x, 70 + y, 0);
+        gl.glTranslated(positionX += ix, positionY += iy, 0);
         gl.glRotated(deg += 70, 0, 0, 1);
-        if (y-70+y1 >= 280 || y-70+y1 <= -20) {
-            iy *= -1;
-        }
-        if (x-100+x1 >= 450 || x-100+x1 <= -50) {
+//        if (y-70+y1 >= 280 || y-70+y1 <= -20) {
+//            iy *= -1;
+//        }
+//        if (x-100+x1 >= 450 || x-100+x1 <= -50) {
+//            ix *= -1;
+//        }
+
+        if (positionX >= 550 || positionX <= 50)
             ix *= -1;
-        }
-        x += ix;
-        y += iy;
+        if (positionY >= 350 || positionY <= 50)
+            iy *= -1;
+
+//        x += ix;
+//        y += iy;
 
         ring(gl, 0f, 0f, 50f, 100);
         // Triangle
