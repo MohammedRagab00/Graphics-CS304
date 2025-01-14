@@ -12,7 +12,7 @@ public class Village extends JFrame {
 
     public Village() {
         //set the JFrame title
-        super("Simple Application");
+        super("Village");
 
         //only three JOGL lines of code ... and here they are
         GLCanvas glcanvas = new GLCanvas();

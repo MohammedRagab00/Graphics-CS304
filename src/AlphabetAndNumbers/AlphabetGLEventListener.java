@@ -18,7 +18,7 @@ public class AlphabetGLEventListener implements GLEventListener {
 
         gl.glOrtho(-300.0, 300.0, -300.0, 300.0, -1.0, 1.0);
 
-        numbers.add(new Numbers(7, -300, 270, 0, 0, 1));
+        numbers.add(new Numbers(7, -300, 270, 1, 1, 1));
         numbers.add(new Numbers(1, -300 + 50, 270 - 85, 1, 0, 0));
         numbers.add(new Numbers(8, -300 + 50 * 2, 270 - 85 * 2, 0, 1, 1));
         numbers.add(new Numbers(5, -300 + 50 * 3, 270 - 85 * 3, 1, 1, 0));
