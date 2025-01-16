@@ -1,4 +1,4 @@
-package AlphabetAndNumbers;
+package Numbers;
 
 import com.sun.opengl.util.FPSAnimator;
 
@@ -9,7 +9,7 @@ import java.awt.*;
 public class quiz3 extends JFrame {
     private GLCanvas glcanvas;
     public static FPSAnimator animator = null;
-    private AlphabetGLEventListener listener = new AlphabetGLEventListener();
+    private NumbersGLEventListener listener = new NumbersGLEventListener();
 
     public static void main(String[] args) {
         new quiz3();
@@ -17,7 +17,7 @@ public class quiz3 extends JFrame {
     }
 
     public quiz3() {
-        super("AlphabetAndNumbers");
+        super("Numbers");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         glcanvas = new GLCanvas();
         animator = new FPSAnimator(glcanvas, 60);

@@ -12,7 +12,7 @@ import java.awt.event.MouseMotionListener;
 public class BoatInSea extends JFrame {
 
     private GLCanvas glcanvas;
-    private SailboatSceneGLEventListener listener = new SailboatSceneGLEventListener();
+    private SailboatGLEventListener listener = new SailboatGLEventListener();
     static FPSAnimator animator = null;
 
     public static void main(String[] args) {

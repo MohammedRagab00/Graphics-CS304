@@ -1,4 +1,4 @@
-package Quiz_02;
+package Traffic;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;

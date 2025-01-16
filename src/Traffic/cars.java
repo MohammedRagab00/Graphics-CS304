@@ -1,4 +1,4 @@
-package Quiz_02;
+package Traffic;
 
 public class cars {
     double x,y,s;

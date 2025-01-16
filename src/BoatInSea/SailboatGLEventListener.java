@@ -1,13 +1,11 @@
 package BoatInSea;
 
-import ShapesApp.ShapesEventListener;
-
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 import java.awt.event.*;
 
-public class SailboatSceneGLEventListener implements GLEventListener, MouseListener, MouseMotionListener, KeyListener {
+public class SailboatGLEventListener implements GLEventListener, MouseListener, MouseMotionListener, KeyListener {
 
     @Override
     public void init(GLAutoDrawable glAutoDrawable) {

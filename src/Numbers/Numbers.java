@@ -1,4 +1,4 @@
-package AlphabetAndNumbers;
+package Numbers;
 
 public class Numbers {
     int x, y, r, g, b, t;

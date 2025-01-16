@@ -1,11 +1,11 @@
-package AlphabetAndNumbers;
+package Numbers;
 
 import javax.media.opengl.GL;
 import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 import java.util.ArrayList;
 
-public class AlphabetGLEventListener implements GLEventListener {
+public class NumbersGLEventListener implements GLEventListener {
 
     @Override
     public void init(GLAutoDrawable glAutoDrawable) {

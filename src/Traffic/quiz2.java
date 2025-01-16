@@ -1,24 +1,23 @@
-package Quiz_02;
+package Traffic;
 
 import com.sun.opengl.util.FPSAnimator;
 
 import javax.media.opengl.GLCanvas;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseWheelListener;
 
-public class quiz extends JFrame {
+public class quiz2 extends JFrame {
     private GLCanvas glcanvas;
     public static FPSAnimator animator = null;
     private quizEventListener listener = new quizEventListener();
 
     public static void main(String[] args) {
-        new quiz();
+        new quiz2();
         animator.start();
     }
 
-    public quiz() {
-        super("Shapes");
+    public quiz2() {
+        super("Traffic Light");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         glcanvas = new GLCanvas();
         animator = new FPSAnimator(glcanvas, 60);
